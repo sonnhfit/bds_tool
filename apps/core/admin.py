@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import NewsPost
+from .models import NewsPost, TemplateBaiViet
 # Register your models here.
 
 
@@ -16,3 +16,8 @@ class PostAdmin(admin.ModelAdmin):
     actions = [auto_post]
 
 admin.site.register(NewsPost, PostAdmin)
+admin.site.register(TemplateBaiViet)
+
+admin.site.site_header = "HTC Land"
+admin.site.site_title = "UMSRA Admin Portal"
+admin.site.index_title = "Welcome to UMSRA Researcher Portal"
