@@ -39,3 +39,7 @@ class NewsPost(models.Model):
 
 class TemplateBaiViet(models.Model):
     baiviet = models.TextField(max_length=200, verbose_name = "Mô tả")
+
+    class Meta:
+        verbose_name = 'Mẫu tin'
+        verbose_name_plural = 'Mẫu tin'
