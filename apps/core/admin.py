@@ -19,5 +19,5 @@ admin.site.register(NewsPost, PostAdmin)
 admin.site.register(TemplateBaiViet)
 
 admin.site.site_header = "HTC Land"
-admin.site.site_title = "UMSRA Admin Portal"
-admin.site.index_title = "Welcome to UMSRA Researcher Portal"
+admin.site.site_title = "HTC Land"
+admin.site.index_title = "Quản trị HTC LAND"
