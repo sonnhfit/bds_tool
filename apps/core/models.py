@@ -1,4 +1,6 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -9,7 +11,7 @@ class NewsPost(models.Model):
         (True, "Nhà đã bán")
     ]
     title = models.CharField(max_length=200, verbose_name = "Tiêu đề")
-    desc = models.TextField(max_length=200, verbose_name = "Mô tả")
+    desc = RichTextUploadingField(default='', verbose_name = "Mô tả", blank=True)
     gia_tien = models.IntegerField(verbose_name = "Mô tả")
     dientich = models.IntegerField(verbose_name = "Diện tích")
     sotang = models.IntegerField(verbose_name = "Số tầng")

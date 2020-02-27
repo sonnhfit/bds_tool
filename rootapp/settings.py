@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.core',
     'apps.users',
-    'apps.dashboard'
+    'apps.dashboard',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -168,3 +170,21 @@ EXPIRED_TOKEN_RESET_TIME = 360
 EXPIRED_TOKEN_CONFIRM_EMAIL_TIME = 86400
 
 LANGUAGE_CODE = 'vi'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': None,
+    },
+    'default': {
+        'toolbar': 'full',
+        'height': 700,
+        'width': 1000,
+    },
+}

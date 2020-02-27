@@ -17,9 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from apps.dashboard import views as dash_views
 from apps.users import views as user_views
+from django.conf.urls.static import static
+
+from django.conf import settings
 
 urlpatterns = [
     path('', admin.site.urls),
-     path('phuong', dash_views.HomeView.as_view()),
-     path('login/', user_views.LoginAPIView.as_view(), name='login_url'),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('phuong', dash_views.HomeView.as_view()),
+    path('login/', user_views.LoginAPIView.as_view(), name='login_url'),
 ]
+
+
+
+
+
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
