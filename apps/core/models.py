@@ -12,7 +12,7 @@ class NewsPost(models.Model):
     ]
     title = models.CharField(max_length=200, verbose_name = "Tiêu đề")
     desc = RichTextUploadingField(default='', verbose_name = "Mô tả", blank=True)
-    gia_tien = models.IntegerField(verbose_name = "Giá tiền")
+    gia_tien = models.FloatField(verbose_name = "Giá tiền")
     dientich = models.IntegerField(verbose_name = "Diện tích")
     sotang = models.IntegerField(verbose_name = "Số tầng")
     co_mat_tien = models.BooleanField(default=False)
@@ -45,3 +45,5 @@ class TemplateBaiViet(models.Model):
     class Meta:
         verbose_name = 'Mẫu tin'
         verbose_name_plural = 'Mẫu tin'
+
+
