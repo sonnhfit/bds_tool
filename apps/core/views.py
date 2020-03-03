@@ -14,7 +14,8 @@ def exception_handler(exc, context):
     return response
 
 
-class GetAllNewsPost(models.Model):
+class GetAllNewsPost(APIViews):
+    permission_classes = (permissions.AllowAny,)
 
     def get(self, request):
         data1 = NewsPost.objects.all()

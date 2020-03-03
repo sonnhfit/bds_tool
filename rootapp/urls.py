@@ -18,6 +18,7 @@ from django.urls import path, include
 from apps.dashboard import views as dash_views
 from apps.users import views as user_views
 from django.conf.urls.static import static
+from apps.core import views as core_views
 
 from django.conf import settings
 
@@ -26,6 +27,8 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('phuong', dash_views.HomeView.as_view()),
     path('login/', user_views.LoginAPIView.as_view(), name='login_url'),
+    path('get-all-home/', core_views.GetAllNewsPost.as_view()),
+
 ]
 
 
