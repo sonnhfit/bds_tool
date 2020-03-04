@@ -14,7 +14,7 @@ def exception_handler(exc, context):
     return response
 
 
-class GetAllNewsPost(APIViews):
+class GetAllNewsPost(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request):
