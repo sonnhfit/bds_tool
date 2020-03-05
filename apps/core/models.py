@@ -4,6 +4,49 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
+class LoaiTin(models.Model):
+    name = models.CharField(max_length=200)
+
+
+class LoaiBDS(models.Model):
+    name = models.CharField(max_length=200)
+
+class Tinh(models.Model):
+    code = models.IntegerField(default=0)
+    name = models.CharField(max_length=200)
+
+
+class QuanHuyen(models.Model):
+    code = models.IntegerField(default=0)
+    name = models.CharField(max_length=200)
+    tinh = models.ForeignKey(Tinh, on_delete=models.CASCADE)
+
+
+class PhuongXa(models.Model):
+    code = models.IntegerField(default=0)
+    name = models.CharField(max_length=200)
+    huyen = models.ForeignKey(QuanHuyen, on_delete=models.CASCADE)
+
+class DuongPho(models.Model):
+    code = models.IntegerField(default=0)
+    name = models.CharField(max_length=200)
+    phuongxa = models.ForeignKey(PhuongXa, on_delete=models.CASCADE)
+
+
+class DuAn(models.Model):
+    code = models.IntegerField(default=0)
+    name = models.CharField(max_length=200)
+    phuongxa = models.ForeignKey(DuongPho, on_delete=models.CASCADE)
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    dienthoai = models.CharField(max_length=200)
+
+
+class Huong(models.Model):
+    name = models.CharField(max_length=200)
+
 
 class NewsPost(models.Model):
     TRANG_THAI_NHA = [
@@ -15,12 +58,18 @@ class NewsPost(models.Model):
     gia_tien = models.FloatField(verbose_name = "Giá tiền")
     dientich = models.IntegerField(verbose_name = "Diện tích")
     sotang = models.IntegerField(verbose_name = "Số tầng")
+    so_phong_ngu = models.IntegerField(default=0, verbose_name = "Số phòng ngủ")
     co_mat_tien = models.BooleanField(default=False)
-    mattien = models.FloatField(verbose_name = "Mặt tiền") #so met mat tien
+    mattien = models.FloatField(verbose_name = "Mặt tiền") #so met mat tien, đường trước nhà
 
     dia_chi = models.CharField(max_length=200, verbose_name = "Địa chỉ")
 
     trang_thai_nha = models.BooleanField(default=False, verbose_name = "Trạng thái nhà")
+
+    co_nha_bep = models.BooleanField(default=False, verbose_name = "Có nhà bếp")
+    co_phong_an = models.BooleanField(default=False, verbose_name = "Có phòng ăn")
+    co_san_thuong = models.BooleanField(default=False, verbose_name = "Có sân thượng")
+    co_cho_de_xe_hoi = models.BooleanField(default=False, verbose_name = "Có chỗ để xe hơi")
 
     anh_1 = models.ImageField(upload_to='anh_nha', null=True, blank=True)
     anh_2 = models.ImageField(upload_to='anh_nha', null=True, blank=True)
