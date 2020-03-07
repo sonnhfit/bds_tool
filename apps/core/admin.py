@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import NewsPost, TemplateBaiViet
+from .models import NewsPost, TemplateBaiViet, LoaiTin, LoaiBDS, Tinh, QuanHuyen, PhuongXa, DuongPho, DuAn, Contact, Huong
 from django.utils.html import format_html
 # Register your models here.
 

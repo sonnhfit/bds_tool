@@ -47,6 +47,8 @@ class Contact(models.Model):
 class Huong(models.Model):
     name = models.CharField(max_length=200)
 
+class PhapLy(models.Model):
+    name = models.CharField(max_length=200)
 
 class NewsPost(models.Model):
     TRANG_THAI_NHA = [
@@ -70,6 +72,11 @@ class NewsPost(models.Model):
     co_phong_an = models.BooleanField(default=False, verbose_name = "Có phòng ăn")
     co_san_thuong = models.BooleanField(default=False, verbose_name = "Có sân thượng")
     co_cho_de_xe_hoi = models.BooleanField(default=False, verbose_name = "Có chỗ để xe hơi")
+
+    loai_tin = models.ForeignKey(LoaiTin, on_delete=models.SET_NULL, verbose_name = "Loại tin", null=True, blank=True)
+    loai_bds = models.ForeignKey(LoaiBDS, on_delete=models.SET_NULL, verbose_name = "Loại BDS", null=True, blank=True)
+    phaply = models.ForeignKey(PhapLy, on_delete=models.SET_NULL, verbose_name = "Pháp lý", null=True, blank=True)
+     
 
     anh_1 = models.ImageField(upload_to='anh_nha', null=True, blank=True)
     anh_2 = models.ImageField(upload_to='anh_nha', null=True, blank=True)
