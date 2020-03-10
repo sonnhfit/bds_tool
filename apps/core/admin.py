@@ -1,8 +1,12 @@
 from django.contrib import admin
-from .models import NewsPost, TemplateBaiViet, LoaiTin, LoaiBDS, Tinh, QuanHuyen, PhuongXa, DuongPho, DuAn, Contact, Huong
+from .models import NewsPost, TemplateBaiViet, LoaiTin, LoaiBDS, Tinh, QuanHuyen, PhuongXa, DuongPho, DuAn, Contact, Huong, PhapLy
 from django.utils.html import format_html
 # Register your models here.
 
+admin.site.register(LoaiBDS)
+admin.site.register(LoaiTin)
+admin.site.register(Huong)
+admin.site.register(PhapLy)
 
 def auto_post(modeladmin, request, queryset):
     pass

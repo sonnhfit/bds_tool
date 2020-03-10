@@ -7,9 +7,23 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class LoaiTin(models.Model):
     name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Loại tin'
+        verbose_name_plural = 'Loại tin'
+
 
 class LoaiBDS(models.Model):
     name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Loại bất động sản'
+        verbose_name_plural = 'Loại bất động sản'
 
 class Tinh(models.Model):
     code = models.IntegerField(default=0)
@@ -47,8 +61,24 @@ class Contact(models.Model):
 class Huong(models.Model):
     name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Hướng'
+        verbose_name_plural = 'Hướng'
+
+
 class PhapLy(models.Model):
     name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Pháp lý'
+        verbose_name_plural = 'Pháp lý'
+
 
 class NewsPost(models.Model):
     TRANG_THAI_NHA = [
